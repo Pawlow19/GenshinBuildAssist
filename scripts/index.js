@@ -108,7 +108,7 @@ function rotateBackgrounds() {
 
             // Przygotowanie do kolejnej zmiany tła
             currentBackgroundIndex = nextIndex;
-            setTimeout(updateBackground, 5000); // Zmiana co 5 sekund
+            setTimeout(updateBackground, 15000); // Zmiana co 5 sekund
         }, 3000); // 3 sekundy na zaciemnienie
     }
 
