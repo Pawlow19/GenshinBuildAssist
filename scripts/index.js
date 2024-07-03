@@ -11,7 +11,7 @@ function loadCharacterIcons() {
             data.characters.forEach(character => {
                 const div = document.createElement('div');
                 div.className = 'character-icon';
-                div.innerHTML = `<a href="characters/${character.toLowerCase()}.html"><img src="assets/characters/icons/${character}_Icon.webp" alt="${character}"><br>${character}</a>`;
+                div.innerHTML = `<a href="characters/${character.toLowerCase()}.html"><img src="assets/characters/icon/${character}_Icon.webp" alt="${character}"><br>${character}</a>`;
                 content.appendChild(div);
             });
         })
