@@ -8,15 +8,10 @@ const backgrounds = [
     'assets/backgrounds/BG_Sumeru_Rainforest.webp'
 ];
 
-// Funkcja do wczytywania obrazów do cache
-function preloadImages() {
-    backgrounds.forEach(imageUrl => {
-        const img = new Image();
-        img.src = imageUrl;
-        img.onload = () => {
-            console.log(`Preloaded: ${imageUrl}`);
-        };
-    });
-}
-
-preloadImages();
+backgrounds.forEach(imageUrl => {
+    const img = new Image();
+    img.src = imageUrl;
+    img.onload = () => {
+        console.log(`Preloaded: ${imageUrl}`);
+    };
+});
