@@ -85,7 +85,6 @@ const backgrounds = [
 ];
 
 let currentBackgroundIndex = 0;
-let imagesLoaded = false;
 
 function rotateBackgrounds() {
     const appElement = document.getElementById('app');
@@ -117,19 +116,7 @@ function rotateBackgrounds() {
     updateBackground();
 }
 
-// Sprawdzenie czy obrazy są załadowane do pamięci podręcznej
-function checkImagesLoaded() {
-    const images = backgrounds.map(bg => `assets/backgrounds/${bg.file}`);
-    imagesLoaded = images.every(imgSrc => document.fonts.check(`url("${imgSrc}")`));
+document.addEventListener('DOMContentLoaded', rotateBackgrounds);
 
-    if (imagesLoaded) {
-        rotateBackgrounds(); // Rozpoczęcie rotacji tła
-    } else {
-        setTimeout(checkImagesLoaded, 1000); // Sprawdzanie co sekundę
-    }
-}
-
-// Rozpoczęcie sprawdzania czy obrazy są załadowane
-document.addEventListener('DOMContentLoaded', checkImagesLoaded);
 
 

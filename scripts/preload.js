@@ -1,18 +1,17 @@
-const backgrounds = [
-    'BG_Fontaine.webp',
-    'BG_Inazuma.webp',
-    'BG_Liyue.webp',
-    'BG_Mond.webp',
-    'BG_Starry.webp',
-    'BG_Sumeru_Desert.webp',
-    'BG_Sumeru_Rainforest.webp'
+const imagesToPreload = [
+    'assets/backgrounds/BG_Fontaine.webp',
+    'assets/backgrounds/BG_Inazuma.webp',
+    'assets/backgrounds/BG_Liyue.webp',
+    'assets/backgrounds/BG_Mond.webp',
+    'assets/backgrounds/BG_Starry.webp',
+    'assets/backgrounds/BG_Sumeru_Desert.webp',
+    'assets/backgrounds/BG_Sumeru_Rainforest.webp'
 ];
 
-function preloadImages() {
-    backgrounds.forEach(bg => {
-        const img = new Image();
-        img.src = `assets/backgrounds/${bg}`;
-    });
-}
-
-preloadImages();
+imagesToPreload.forEach(imageUrl => {
+    const img = new Image();
+    img.src = imageUrl;
+    img.onload = () => {
+        console.log(`Preloaded: ${imageUrl}`);
+    };
+});
