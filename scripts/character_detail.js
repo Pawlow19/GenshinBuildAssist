@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadCharacterDetail(character) {
-    const characterData = JSON.parse(localStorage.getItem(character) || '{}');
+    const characterData = JSON.parse(localStorage.getItem(`character_${character}`) || '{}');
     const addRemoveButton = document.getElementById('add-remove-character');
     const characterDetail = document.getElementById('character-data');
     const editCharacterForm = document.getElementById('edit-character-form');
@@ -18,20 +18,21 @@ function loadCharacterDetail(character) {
         document.getElementById('normal-attack-level').textContent = characterData.normalAttack || 1;
         document.getElementById('elemental-skill-level').textContent = characterData.elementalSkill || 1;
         document.getElementById('elemental-burst-level').textContent = characterData.elementalBurst || 1;
+        removeButton.style.display = 'block';
     } else {
         addRemoveButton.textContent = 'Add Character';
     }
 
     addRemoveButton.addEventListener('click', () => {
         if (characterData.level) {
-            localStorage.removeItem(character);
+            localStorage.removeItem(`character_${character}`);
             window.location.reload();
         } else {
             characterData.level = 1;
             characterData.normalAttack = 1;
             characterData.elementalSkill = 1;
             characterData.elementalBurst = 1;
-            localStorage.setItem(character, JSON.stringify(characterData));
+            localStorage.setItem(`character_${character}`, JSON.stringify(characterData));
             window.location.reload();
         }
     });
@@ -50,13 +51,13 @@ function loadCharacterDetail(character) {
         characterData.normalAttack = parseInt(document.getElementById('edit-normal-attack-level').value);
         characterData.elementalSkill = parseInt(document.getElementById('edit-elemental-skill-level').value);
         characterData.elementalBurst = parseInt(document.getElementById('edit-elemental-burst-level').value);
-        localStorage.setItem(character, JSON.stringify(characterData));
+        localStorage.setItem(`character_${character}`, JSON.stringify(characterData));
         window.location.reload();
     });
 
     removeButton.addEventListener('click', () => {
         if (confirmRemove.checked) {
-            localStorage.removeItem(character);
+            localStorage.removeItem(`character_${character}`);
             window.location.reload();
         }
     });
