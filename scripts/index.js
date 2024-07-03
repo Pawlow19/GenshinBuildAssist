@@ -84,6 +84,16 @@ const backgrounds = [
     { file: 'BG_Sumeru_Rainforest.webp', author: 'Party BG_Sumeru (Rainforest)_cleaned & upscaled by asddzr' }
 ];
 
+function preloadImagesToCache() {
+    backgrounds.forEach(bg => {
+        const img = new Image();
+        img.src = `assets/backgrounds/${bg.file}`;
+    });
+}
+
+// Wywołanie funkcji preloadImagesToCache po załadowaniu DOM
+document.addEventListener('DOMContentLoaded', preloadImagesToCache);
+
 let currentBackgroundIndex = 0;
 
 function rotateBackgrounds() {
@@ -108,7 +118,7 @@ function rotateBackgrounds() {
 
             // Przygotowanie do kolejnej zmiany tła
             currentBackgroundIndex = nextIndex;
-            setTimeout(updateBackground, 5000); // Zmiana co 60 sekund
+            setTimeout(updateBackground, 5000); // Zmiana co 5 sekund
         }, 3000); // 3 sekundy na zaciemnienie
     }
 
@@ -116,5 +126,7 @@ function rotateBackgrounds() {
     updateBackground();
 }
 
+// Rozpoczęcie rotacji tła po załadowaniu DOM
 document.addEventListener('DOMContentLoaded', rotateBackgrounds);
+
 
