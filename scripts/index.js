@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', loadCharacterIcons);
+document.addEventListener('DOMContentLoaded', () => {
+    loadCharacterIcons();
+    rotateBackgrounds();
+});
 
 function loadCharacterIcons() {
     fetch('data/character_list.json')
@@ -69,4 +72,32 @@ function showOwnedMaterials() {
     document.getElementById('searchBar').style.display = 'none';
     const content = document.getElementById('content');
     content.innerHTML = '<p>Funkcja w budowie...</p>';
+}
+
+const backgrounds = [
+    { file: 'BG_Fontaine.webp', author: 'Party BG_Fontaine_cleaned & upscaled by asddzr' },
+    { file: 'BG_Inazuma.webp', author: 'Party BG_Inazuma_cleaned & upscaled by asddzr' },
+    { file: 'BG_Liyue.webp', author: 'Party BG_Liyue_cleaned & upscaled by asddzr' },
+    { file: 'BG_Mond.webp', author: 'Party BG_Mond_cleaned & upscaled by asddzr' },
+    { file: 'BG_Starry.webp', author: 'Party BG_Starry_cleaned & upscaled by asddzr' },
+    { file: 'BG_Sumeru_Desert.webp', author: 'Party BG_Sumeru (Desert)_cleaned & upscaled by asddzr' },
+    { file: 'BG_Sumeru_Rainforest.webp', author: 'Party BG_Sumeru (Rainforest)_cleaned & upscaled by asddzr' }
+];
+
+let currentBackgroundIndex = 0;
+
+function rotateBackgrounds() {
+    const appElement = document.getElementById('app');
+    const authorElement = document.getElementById('background-author');
+
+    function updateBackground() {
+        const bg = backgrounds[currentBackgroundIndex];
+        appElement.style.backgroundImage = `url('assets/backgrounds/${bg.file}')`;
+        authorElement.textContent = `OG File: ${bg.author}`;
+
+        currentBackgroundIndex = (currentBackgroundIndex + 1) % backgrounds.length;
+    }
+
+    updateBackground();
+    setInterval(updateBackground, 10000); // Zmiana co 10 sekund
 }
