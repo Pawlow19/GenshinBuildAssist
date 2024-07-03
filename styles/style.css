@@ -57,9 +57,10 @@ nav {
 }
 
 .character-list-container {
-    background-color: rgba(255, 255, 255, 0.8); /* Półprzezroczyste tło */
+    background-color: #ffffffcc; /* Półprzezroczyste tło */
     padding: 20px;
     border-radius: 10px;
+    width: 100%;
     max-width: calc(100% - 40px); /* Maksymalna szerokość - marginesy */
     margin: 0 auto; /* Centralne wyrównanie */
     margin-top: 20px; /* Dodatkowy margines na górę */
