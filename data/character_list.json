@@ -6,6 +6,12 @@
             "Elemental Skill": "Explosive Puppet",
             "Elemental Burst": "Fiery Rain"
         },
+        "Ganyu": {
+            "image": "Character_Ganyu_Full_Wish.webp",
+            "Normal Attack": "Liutian Archery",	
+            "Elemental Skill": "Trail of the Qilin",
+            "Elemental Burst": "Celestial Shower"
+        },
         "Lisa": {
             "image": "Character_Lisa_Full_Wish.webp",
             "Normal Attack": "Lightning Touch",	
