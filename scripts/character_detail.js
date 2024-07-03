@@ -15,7 +15,7 @@ function loadCharacterDetail(character) {
             const characterData = data.characters[character];
             if (characterData) {
                 document.getElementById('character-name').textContent = character;
-                document.getElementById('character-image').src = `../assets/characters/full/${characterData.image}`;
+                document.getElementById('character-image').src = `assets/characters/full/${characterData.image}`;
                 document.getElementById('normal-attack-name').textContent = `Normal Attack: ${characterData["Normal Attack"]}`;
                 document.getElementById('elemental-skill-name').textContent = `Elemental Skill: ${characterData["Elemental Skill"]}`;
                 document.getElementById('elemental-burst-name').textContent = `Elemental Burst: ${characterData["Elemental Burst"]}`;
