@@ -127,3 +127,4 @@ function rotateBackgrounds() {
 
 document.addEventListener('DOMContentLoaded', rotateBackgrounds);
 
+

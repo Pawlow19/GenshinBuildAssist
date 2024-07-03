@@ -1,4 +1,4 @@
-const backgrounds = [
+const preloadBackgrounds = [
     'assets/backgrounds/BG_Fontaine.webp',
     'assets/backgrounds/BG_Inazuma.webp',
     'assets/backgrounds/BG_Liyue.webp',
@@ -8,7 +8,7 @@ const backgrounds = [
     'assets/backgrounds/BG_Sumeru_Rainforest.webp'
 ];
 
-backgrounds.forEach(imageUrl => {
+preloadBackgrounds.forEach(imageUrl => {
     const img = new Image();
     img.src = imageUrl;
     img.onload = () => {
