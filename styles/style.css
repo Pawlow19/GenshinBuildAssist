@@ -60,7 +60,38 @@ nav {
     background-color: rgba(255, 255, 255, 0.8); /* Półprzezroczyste tło */
     padding: 20px;
     border-radius: 10px;
-    max-width: 50%; /* Maksymalna szerokość boxa */
+    max-width: calc(100% - 40px); /* Maksymalna szerokość - marginesy */
     margin: 0 auto; /* Centralne wyrównanie */
     margin-top: 20px; /* Dodatkowy margines na górę */
+    display: flex;
+    flex-wrap: wrap; /* Zawijanie do nowego wiersza */
+    gap: 20px; /* Odstęp między elementami */
+}
+
+/* Ustalanie szerokości na maksymalnie 4 postacie w rzędzie */
+.character-list-item {
+    flex: 0 1 calc(25% - 20px); /* 25% szerokości - odstęp między elementami */
+    max-width: calc(25% - 20px); /* Maksymalna szerokość - odstęp między elementami */
+    margin-bottom: 20px; /* Margines na dół */
+}
+
+@media (max-width: 1200px) {
+    .character-list-item {
+        flex: 0 1 calc(33.33% - 20px); /* Trzy postacie w rzędzie */
+        max-width: calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .character-list-item {
+        flex: 0 1 calc(50% - 20px); /* Dwie postacie w rzędzie */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .character-list-item {
+        flex: 0 1 100%; /* Jedna postać na całą szerokość */
+        max-width: 100%;
+    }
 }
