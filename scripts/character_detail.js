@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadCharacterDetail(character) {
-    fetch('../data/character_list.json')
+    fetch('data/character_list.json')
         .then(response => response.json())
         .then(data => {
             const characterData = data.characters[character];
