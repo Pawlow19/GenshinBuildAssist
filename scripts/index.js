@@ -92,12 +92,22 @@ function rotateBackgrounds() {
 
     function updateBackground() {
         const bg = backgrounds[currentBackgroundIndex];
-        appElement.style.backgroundImage = `url('assets/backgrounds/${bg.file}')`;
-        authorElement.textContent = `OG File: ${bg.author}`;
+        const nextIndex = (currentBackgroundIndex + 1) % backgrounds.length;
+        const nextBg = backgrounds[nextIndex];
 
-        currentBackgroundIndex = (currentBackgroundIndex + 1) % backgrounds.length;
+        // Ustawienie nowego tła
+        appElement.style.backgroundImage = `url('assets/backgrounds/${nextBg.file}')`;
+        authorElement.textContent = `OG File: ${nextBg.author}`;
+
+        // Przygotowanie do kolejnej zmiany
+        currentBackgroundIndex = nextIndex;
+        setTimeout(updateBackground, 60000); // Zmiana co 60 sekund
     }
 
+    // Wywołanie pierwszej zmiany tła
     updateBackground();
-    setInterval(updateBackground, 50000); // Zmiana co 10 sekund
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    rotateBackgrounds();
+});
