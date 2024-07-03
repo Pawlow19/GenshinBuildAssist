@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     background-size: cover;
     background-position: center;
     transition: background-image 1s ease-in-out; /* Efekt przejścia */
@@ -26,8 +27,8 @@ nav {
 }
 
 #searchBar {
-    display: none;
-    margin-top: 20px;
+    display: block; /* Pokazuje searchBar */
+    margin-bottom: 10px; /* Margines na dół */
 }
 
 .character-icon {
@@ -53,14 +54,11 @@ nav {
     z-index: 10; /* Zwiększenie z-index, aby tekst był na górze */
 }
 
-
-.character-detail {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.character-image img {
-    max-width: 100%;
-    height: auto;
+.character-list-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Półprzezroczyste tło */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 50%; /* Maksymalna szerokość boxa */
+    margin: 0 auto; /* Centralne wyrównanie */
+    margin-top: 20px; /* Dodatkowy margines na górę */
 }

@@ -1,0 +1,16 @@
+body {
+    background-image: url('assets/backgrounds/BG_Character_Details.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.character-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.character-image img {
+    max-width: 100%;
+    height: auto;
+}
