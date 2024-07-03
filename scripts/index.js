@@ -99,5 +99,5 @@ function rotateBackgrounds() {
     }
 
     updateBackground();
-    setInterval(updateBackground, 10000); // Zmiana co 10 sekund
+    setInterval(updateBackground, 100000); // Zmiana co 10 sekund
 }
