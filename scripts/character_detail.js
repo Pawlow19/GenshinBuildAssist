@@ -1,9 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const character = document.querySelector('h1').textContent.trim();
-    loadCharacterDetail(character);
+    const urlParams = new URLSearchParams(window.location.search);
+    const character = urlParams.get('name');
+    if (character) {
+        loadCharacterDetail(character);
+    } else {
+        alert('Character not specified.');
+    }
 });
 
 function loadCharacterDetail(character) {
+    fetch('../data/character_list.json')
+        .then(response => response.json())
+        .then(data => {
+            const characterData = data.characters[character];
+            if (characterData) {
+                document.getElementById('character-name').textContent = character;
+                document.getElementById('character-image').src = `../assets/characters/full/${characterData.image}`;
+                document.getElementById('normal-attack-name').textContent = `Normal Attack: ${characterData["Normal Attack"]}`;
+                document.getElementById('elemental-skill-name').textContent = `Elemental Skill: ${characterData["Elemental Skill"]}`;
+                document.getElementById('elemental-burst-name').textContent = `Elemental Burst: ${characterData["Elemental Burst"]}`;
+                document.getElementById('edit-normal-attack-name').textContent = `Normal Attack: ${characterData["Normal Attack"]}`;
+                document.getElementById('edit-elemental-skill-name').textContent = `Elemental Skill: ${characterData["Elemental Skill"]}`;
+                document.getElementById('edit-elemental-burst-name').textContent = `Elemental Burst: ${characterData["Elemental Burst"]}`;
+                loadCharacterFromLocalStorage(character);
+            } else {
+                alert('Character data not found.');
+            }
+        })
+        .catch(error => console.error('Error loading character data:', error));
+}
+
+function loadCharacterFromLocalStorage(character) {
     const characterData = JSON.parse(localStorage.getItem(`character_${character}`) || '{}');
     const addRemoveButton = document.getElementById('add-remove-character');
     const characterDetail = document.getElementById('character-data');

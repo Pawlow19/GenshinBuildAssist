@@ -1,3 +1,16 @@
 {
-    "characters": ["Amber", "Lisa"]
+    "characters": {
+        "Amber": {
+            "image": "Character_Amber_Full_Wish.webp",
+            "Normal Attack": "Sharpshooter",
+            "Elemental Skill": "Explosive Puppet",
+            "Elemental Burst": "Fiery Rain"
+        },
+        "Lisa": {
+            "image": "Character_Lisa_Full_Wish.webp",
+            "Normal Attack": "Lightning Touch",	
+            "Elemental Skill": "Violet Arc",
+            "Elemental Burst": "Lightning Rose"
+        }
+    }
 }

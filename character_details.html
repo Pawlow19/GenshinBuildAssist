@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amber - Genshin Impact</title>
+    <title>Character Details - Genshin Impact</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <div id="app">
-        <h1>Amber</h1>
+        <h1 id="character-name"></h1>
         <div class="character-detail">
             <div class="character-image">
-                <img src="../assets/characters/full/Character_Amber_Full_Wish.webp" alt="Lisa">
+                <img id="character-image" src="" alt="Character Image">
             </div>
             <div class="character-info">
                 <button id="add-remove-character">Add Character</button>
@@ -22,15 +22,15 @@
                             <td><span id="level-value">1</span></td>
                         </tr>
                         <tr>
-                            <td>Normal Attack</td>
+                            <td id="normal-attack-name">Normal Attack</td>
                             <td><span id="normal-attack-level">1</span></td>
                         </tr>
                         <tr>
-                            <td>Elemental Skill</td>
+                            <td id="elemental-skill-name">Elemental Skill</td>
                             <td><span id="elemental-skill-level">1</span></td>
                         </tr>
                         <tr>
-                            <td>Elemental Burst</td>
+                            <td id="elemental-burst-name">Elemental Burst</td>
                             <td><span id="elemental-burst-level">1</span></td>
                         </tr>
                     </table>
@@ -44,15 +44,15 @@
                             <td><input type="number" id="edit-level-value" value="1"></td>
                         </tr>
                         <tr>
-                            <td>Normal Attack</td>
+                            <td id="edit-normal-attack-name">Normal Attack</td>
                             <td><input type="number" id="edit-normal-attack-level" value="1"></td>
                         </tr>
                         <tr>
-                            <td>Elemental Skill</td>
+                            <td id="edit-elemental-skill-name">Elemental Skill</td>
                             <td><input type="number" id="edit-elemental-skill-level" value="1"></td>
                         </tr>
                         <tr>
-                            <td>Elemental Burst</td>
+                            <td id="edit-elemental-burst-name">Elemental Burst</td>
                             <td><input type="number" id="edit-elemental-burst-level" value="1"></td>
                         </tr>
                     </table>
