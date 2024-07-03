@@ -95,25 +95,20 @@ function rotateBackgrounds() {
         const nextIndex = (currentBackgroundIndex + 1) % backgrounds.length;
         const nextBg = backgrounds[nextIndex];
 
-        // Ustawienie nowego tła
+        // Zmiana tła
+        appElement.style.transition = 'none'; // Wyłączenie przejścia
         appElement.style.backgroundImage = `url('assets/backgrounds/${bg.file}')`;
         authorElement.textContent = `OG File: ${bg.author}`;
 
-        // Przygotowanie do kolejnej zmiany
-        currentBackgroundIndex = nextIndex;
-
-        // Opóźnienie zmiany tła
+        // Opóźnienie przed ustawieniem nowego tła
         setTimeout(() => {
-            // Wymazanie poprzedniego tła
-            appElement.style.transition = 'none';
-            // Ustawienie nowego tła z przejściem
+            appElement.style.transition = 'background-image 3s ease-in-out'; // Włączenie przejścia
             appElement.style.backgroundImage = `url('assets/backgrounds/${nextBg.file}')`;
-            // Odczekanie na zmianę tła
-            setTimeout(() => {
-                appElement.style.transition = 'background-image 3s ease-in-out';
-                appElement.style.backgroundImage = `url('assets/backgrounds/${nextBg.file}')`;
-                authorElement.textContent = `OG File: ${nextBg.author}`;
-            }, 5);
+            authorElement.textContent = `OG File: ${nextBg.author}`;
+
+            // Przygotowanie do kolejnej zmiany tła
+            currentBackgroundIndex = nextIndex;
+            setTimeout(updateBackground, 5000); // Zmiana co 60 sekund
         }, 3000); // 3 sekundy na zaciemnienie
     }
 
@@ -121,6 +116,5 @@ function rotateBackgrounds() {
     updateBackground();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    rotateBackgrounds();
-});
+document.addEventListener('DOMContentLoaded', rotateBackgrounds);
+
