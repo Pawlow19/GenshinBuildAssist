@@ -1,49 +1,111 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const characterForm = document.getElementById('character-form');
-    const materialsCalculator = document.getElementById('materials-calculator');
-    const result = document.getElementById('result');
+    loadCharacterIcons();
+});
+
+function loadCharacterIcons() {
+    fetch('data/characters.json')
+        .then(response => response.json())
+        .then(data => {
+            const content = document.getElementById('content');
+            content.innerHTML = '';
+            for (let character in data) {
+                const div = document.createElement('div');
+                div.className = 'character-icon';
+                div.innerHTML = `<img src="assets/characters/icons/${character}_Icon.webp" alt="${character}"><br>${character}`;
+                div.onclick = () => showCharacterDetail(character);
+                content.appendChild(div);
+            }
+        })
+        .catch(error => console.error('Error loading character icons:', error));
+}
+
+function showCharacterList() {
+    loadCharacterIcons();
+}
+
+function showOwnedCharacters() {
+    // Implementacja wyświetlania posiadanych postaci
+}
+
+function showMaterialList() {
+    // Implementacja wyświetlania listy materiałów
+}
+
+function showOwnedMaterials() {
+    // Implementacja wyświetlania posiadanych materiałów
+}
+
+function showCharacterDetail(character) {
+    window.location.href = `characters/${character.toLowerCase()}.html`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const character = urlParams.get('character');
+    if (character) {
+        loadCharacterDetail(character);
+    }
+});
+
+function loadCharacterDetail(character) {
+    const characterData = JSON.parse(localStorage.getItem(character) || '{}');
+    const addRemoveButton = document.getElementById('add-remove-character');
+    const characterDetail = document.getElementById('character-data');
+    const editCharacterForm = document.getElementById('edit-character-form');
+    const removeButton = document.getElementById('remove-character');
+    const confirmRemove = document.getElementById('confirm-remove');
+
+    if (characterData.level) {
+        addRemoveButton.textContent = 'Remove Character';
+        characterDetail.style.display = 'block';
+        document.getElementById('level-value').textContent = characterData.level;
+        document.getElementById('normal-attack-level').textContent = characterData.normalAttack || 1;
+        document.getElementById('elemental-skill-level').textContent = characterData.elementalSkill || 1;
+        document.getElementById('elemental-burst-level').textContent = characterData.elementalBurst || 1;
+    } else {
+        addRemoveButton.textContent = 'Add Character';
+    }
+
+    addRemoveButton.addEventListener('click', () => {
+        if (characterData.level) {
+            localStorage.removeItem(character);
+            window.location.reload();
+        } else {
+            characterData.level = 1;
+            characterData.normalAttack = 1;
+            characterData.elementalSkill = 1;
+            characterData.elementalBurst = 1;
+            localStorage.setItem(character, JSON.stringify(characterData));
+            window.location.reload();
+        }
+    });
+
+    document.getElementById('edit-character').addEventListener('click', () => {
+        editCharacterForm.style.display = 'block';
+        characterDetail.style.display = 'none';
+        document.getElementById('edit-level-value').value = characterData.level;
+        document.getElementById('edit-normal-attack-level').value = characterData.normalAttack;
+        document.getElementById('edit-elemental-skill-level').value = characterData.elementalSkill;
+        document.getElementById('edit-elemental-burst-level').value = characterData.elementalBurst;
+    });
 
     document.getElementById('save-character').addEventListener('click', () => {
-        const name = document.getElementById('character-name').value;
-        const currentLevel = parseInt(document.getElementById('current-level').value);
-        const targetLevel = parseInt(document.getElementById('target-level').value);
+        characterData.level = parseInt(document.getElementById('edit-level-value').value);
+        characterData.normalAttack = parseInt(document.getElementById('edit-normal-attack-level').value);
+        characterData.elementalSkill = parseInt(document.getElementById('edit-elemental-skill-level').value);
+        characterData.elementalBurst = parseInt(document.getElementById('edit-elemental-burst-level').value);
+        localStorage.setItem(character, JSON.stringify(characterData));
+        window.location.reload();
+    });
 
-        if (!name || isNaN(currentLevel) || isNaN(targetLevel)) {
-            alert('Please enter valid character data.');
-            return;
+    removeButton.addEventListener('click', () => {
+        if (confirmRemove.checked) {
+            localStorage.removeItem(character);
+            window.location.reload();
         }
-
-        const characters = JSON.parse(localStorage.getItem('characters') || '{}');
-        characters[name] = { currentLevel, targetLevel };
-        localStorage.setItem('characters', JSON.stringify(characters));
-        alert('Character saved!');
     });
 
-    document.getElementById('calculate-materials').addEventListener('click', () => {
-        const characters = JSON.parse(localStorage.getItem('characters') || '{}');
-        fetch('data/characters.json')
-            .then(response => response.json())
-            .then(data => {
-                let missingMaterials = {};
-                for (let name in characters) {
-                    let { currentLevel, targetLevel } = characters[name];
-                    for (let level = currentLevel + 1; level <= targetLevel; level++) {
-                        let ascensionMaterials = data[name]?.ascension_materials[level];
-                        let talentMaterials = data[name]?.talent_materials[level];
-                        if (ascensionMaterials) {
-                            for (let material in ascensionMaterials) {
-                                missingMaterials[material] = (missingMaterials[material] || 0) + ascensionMaterials[material];
-                            }
-                        }
-                        if (talentMaterials) {
-                            for (let material in talentMaterials) {
-                                missingMaterials[material] = (missingMaterials[material] || 0) + talentMaterials[material];
-                            }
-                        }
-                    }
-                }
-                result.textContent = JSON.stringify(missingMaterials, null, 2);
-            })
-            .catch(error => console.error('Error fetching character data:', error));
+    confirmRemove.addEventListener('change', () => {
+        removeButton.disabled = !confirmRemove.checked;
     });
-});
+}

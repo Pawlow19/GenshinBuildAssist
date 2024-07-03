@@ -9,18 +9,13 @@
 <body>
     <div id="app">
         <h1>Genshin Impact Materials Calculator</h1>
-        <div id="character-form">
-            <h2>Add/Update Character</h2>
-            <input type="text" id="character-name" placeholder="Character Name">
-            <input type="number" id="current-level" placeholder="Current Level">
-            <input type="number" id="target-level" placeholder="Target Level">
-            <button id="save-character">Save Character</button>
-        </div>
-        <div id="materials-calculator">
-            <h2>Calculate Missing Materials</h2>
-            <button id="calculate-materials">Calculate Materials</button>
-            <pre id="result"></pre>
-        </div>
+        <nav>
+            <button onclick="showCharacterList()">Lista Postaci</button>
+            <button onclick="showOwnedCharacters()">Posiadane Postacie</button>
+            <button onclick="showMaterialList()">Lista Materiałów</button>
+            <button onclick="showOwnedMaterials()">Posiadane Materiały</button>
+        </nav>
+        <div id="content"></div>
     </div>
     <script src="script.js"></script>
 </body>
