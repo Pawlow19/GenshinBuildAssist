@@ -84,17 +84,8 @@ const backgrounds = [
     { file: 'BG_Sumeru_Rainforest.webp', author: 'Party BG_Sumeru (Rainforest)_cleaned & upscaled by asddzr' }
 ];
 
-function preloadImagesToCache() {
-    backgrounds.forEach(bg => {
-        const img = new Image();
-        img.src = `assets/backgrounds/${bg.file}`;
-    });
-}
-
-// Wywołanie funkcji preloadImagesToCache po załadowaniu DOM
-document.addEventListener('DOMContentLoaded', preloadImagesToCache);
-
 let currentBackgroundIndex = 0;
+let imagesLoaded = false;
 
 function rotateBackgrounds() {
     const appElement = document.getElementById('app');
@@ -126,7 +117,19 @@ function rotateBackgrounds() {
     updateBackground();
 }
 
-// Rozpoczęcie rotacji tła po załadowaniu DOM
-document.addEventListener('DOMContentLoaded', rotateBackgrounds);
+// Sprawdzenie czy obrazy są załadowane do pamięci podręcznej
+function checkImagesLoaded() {
+    const images = backgrounds.map(bg => `assets/backgrounds/${bg.file}`);
+    imagesLoaded = images.every(imgSrc => document.fonts.check(`url("${imgSrc}")`));
+
+    if (imagesLoaded) {
+        rotateBackgrounds(); // Rozpoczęcie rotacji tła
+    } else {
+        setTimeout(checkImagesLoaded, 1000); // Sprawdzanie co sekundę
+    }
+}
+
+// Rozpoczęcie sprawdzania czy obrazy są załadowane
+document.addEventListener('DOMContentLoaded', checkImagesLoaded);
 
 
