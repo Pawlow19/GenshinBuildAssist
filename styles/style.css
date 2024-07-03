@@ -10,7 +10,9 @@ body {
     overflow: hidden;
 }
 
-h1 { margin: 0; }
+h1 {
+    margin: 0;
+}
 
 #app {
     text-align: center;
@@ -26,13 +28,14 @@ nav {
     margin-top: 20px;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    width: 100%; /* Ustalona szerokość */
-    max-width: 1200px; /* Maksymalna szerokość */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 #searchBar {
-    display: block; /* Pokazuje searchBar */
-    margin-bottom: 10px; /* Margines na dół */
+    display: block;
+    margin-bottom: 10px;
 }
 
 .character-icon {
@@ -55,27 +58,25 @@ nav {
     background: rgba(0, 0, 0, 0.5);
     padding: 5px;
     border-radius: 5px;
-    z-index: 10; /* Zwiększenie z-index, aby tekst był na górze */
+    z-index: 10;
 }
 
 .character-list-container {
-    background-color: rgba(255, 255, 255, 0.8); /* Półprzezroczyste tło */
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
-    width: 80%; /* Ustalona szerokość */
-    max-width: 1200px; /* Maksymalna szerokość */
-    margin: 0 auto; /* Centralne wyrównanie */
-    margin-top: 20px; /* Dodatkowy margines na górę */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    flex-wrap: wrap; /* Zawijanie do nowego wiersza */
-    gap: 20px; /* Odstęp między elementami */
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-/* Ustalanie szerokości na maksymalnie 4 postacie w rzędzie */
 .character-list-item {
-    flex: 0 1 calc(25% - 20px); /* 25% szerokości - odstęp między elementami */
-    max-width: calc(25% - 20px); /* Maksymalna szerokość - odstęp między elementami */
-    margin-bottom: 20px; /* Margines na dół */
+    flex: 0 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+    margin-bottom: 20px;
 }
 
 @media (max-width: 1200px) {
