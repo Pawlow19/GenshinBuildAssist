@@ -1,17 +1,21 @@
-const preloadBackgrounds = [
-    'assets/backgrounds/BG_Fontaine.webp',
-    'assets/backgrounds/BG_Inazuma.webp',
-    'assets/backgrounds/BG_Liyue.webp',
-    'assets/backgrounds/BG_Mond.webp',
-    'assets/backgrounds/BG_Starry.webp',
-    'assets/backgrounds/BG_Sumeru_Desert.webp',
-    'assets/backgrounds/BG_Sumeru_Rainforest.webp'
+const backgrounds = [
+    { file: 'BG_Fontaine.webp', author: 'Party BG_Fontaine_cleaned & upscaled by asddzr' },
+    { file: 'BG_Inazuma.webp', author: 'Party BG_Inazuma_cleaned & upscaled by asddzr' },
+    { file: 'BG_Liyue.webp', author: 'Party BG_Liyue_cleaned & upscaled by asddzr' },
+    { file: 'BG_Mond.webp', author: 'Party BG_Mond_cleaned & upscaled by asddzr' },
+    { file: 'BG_Starry.webp', author: 'Party BG_Starry_cleaned & upscaled by asddzr' },
+    { file: 'BG_Sumeru_Desert.webp', author: 'Party BG_Sumeru (Desert)_cleaned & upscaled by asddzr' },
+    { file: 'BG_Sumeru_Rainforest.webp', author: 'Party BG_Sumeru (Rainforest)_cleaned & upscaled by asddzr' }
 ];
 
-preloadBackgrounds.forEach(imageUrl => {
+// Preload images and store them in an array
+const preloadedImages = [];
+
+backgrounds.forEach(bg => {
     const img = new Image();
-    img.src = imageUrl;
+    img.src = `assets/backgrounds/${bg.file}`;
     img.onload = () => {
-        console.log(`Preloaded: ${imageUrl}`);
+        preloadedImages.push({ img, author: bg.author });
+        console.log(`Preloaded: ${bg.file}`);
     };
 });
