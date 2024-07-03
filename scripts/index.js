@@ -113,7 +113,7 @@ function rotateBackgrounds() {
                 appElement.style.transition = 'background-image 3s ease-in-out';
                 appElement.style.backgroundImage = `url('assets/backgrounds/${nextBg.file}')`;
                 authorElement.textContent = `OG File: ${nextBg.author}`;
-            }, 100);
+            }, 5);
         }, 3000); // 3 sekundy na zaciemnienie
     }
 
