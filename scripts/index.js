@@ -101,7 +101,8 @@ function rotateBackgrounds() {
 
         // Przygotowanie do kolejnej zmiany
         currentBackgroundIndex = nextIndex;
-        setTimeout(updateBackground, 60000); // Zmiana co 60 sekund
+        //setTimeout(updateBackground, 60000); // Zmiana co 60 sekund
+        setTimeout(updateBackground, 5000); // Zmiana co 5 sekund, test przejścia
     }
 
     // Wywołanie pierwszej zmiany tła
