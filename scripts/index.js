@@ -86,30 +86,38 @@ const backgrounds = [
 
 let currentBackgroundIndex = 0;
 
+function preloadImage(src, callback) {
+    const img = new Image();
+    img.src = src;
+    img.onload = callback;
+}
+
 function rotateBackgrounds() {
     const appElement = document.getElementById('app');
     const authorElement = document.getElementById('background-author');
 
     function updateBackground() {
-        const bg = preloadedImages[currentBackgroundIndex];
-        const nextIndex = (currentBackgroundIndex + 1) % preloadedImages.length;
-        const nextBg = preloadedImages[nextIndex];
+        const bg = backgrounds[currentBackgroundIndex];
+        const nextIndex = (currentBackgroundIndex + 1) % backgrounds.length;
+        const nextBg = backgrounds[nextIndex];
 
         // Zmiana tła
         appElement.style.transition = 'none'; // Wyłączenie przejścia
-        appElement.style.backgroundImage = `url(${bg.img.src})`;
+        appElement.style.backgroundImage = `url('assets/backgrounds/${bg.file}')`;
         authorElement.textContent = `OG File: ${bg.author}`;
 
         // Opóźnienie przed ustawieniem nowego tła
         setTimeout(() => {
             appElement.style.transition = 'background-image 3s ease-in-out'; // Włączenie przejścia
 
-            appElement.style.backgroundImage = `url(${nextBg.img.src})`;
-            authorElement.textContent = `OG File: ${nextBg.author}`;
+            preloadImage(`assets/backgrounds/${nextBg.file}`, () => {
+                appElement.style.backgroundImage = `url('assets/backgrounds/${nextBg.file}')`;
+                authorElement.textContent = `OG File: ${nextBg.author}`;
 
-            // Przygotowanie do kolejnej zmiany tła
-            currentBackgroundIndex = nextIndex;
-            setTimeout(updateBackground, 27000); // Zmiana co 10 sekund
+                // Przygotowanie do kolejnej zmiany tła
+                currentBackgroundIndex = nextIndex;
+                setTimeout(updateBackground, 7000); // Zmiana co 10 sekund
+            });
         }, 3000); // 3 sekundy na zaciemnienie
     }
 
@@ -117,12 +125,6 @@ function rotateBackgrounds() {
     updateBackground();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Wait until all images are preloaded
-    const preloadCheckInterval = setInterval(() => {
-        if (preloadedImages.length === backgrounds.length) {
-            clearInterval(preloadCheckInterval);
-            rotateBackgrounds();
-        }
-    }, 100); // Check every 100ms
-});
+document.addEventListener('DOMContentLoaded', rotateBackgrounds);
+
+
