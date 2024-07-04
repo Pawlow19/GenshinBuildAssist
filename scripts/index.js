@@ -128,7 +128,7 @@ function rotateBackgrounds() {
             authorElement.textContent = `OG File: ${nextBg.author}`;
 
             currentBackgroundIndex = nextIndex;
-            setTimeout(updateBackground, 7000); // Zmiana co 10 sekund
+            setTimeout(updateBackground, 57000); // Zmiana co 60 sekund
         }, 3000); // 3 sekundy na zaciemnienie
     }
 

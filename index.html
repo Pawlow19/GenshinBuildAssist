@@ -17,8 +17,11 @@
             <button onclick="showMaterialList()">Lista Materiałów</button>
             <button onclick="showOwnedMaterials()">Posiadane Materiały</button>
         </nav>
-        <input type="text" id="searchBar" onkeyup="filterCharacters()" placeholder="Wyszukaj postać...">
-        <div id="content"></div>
+        <div id="content">
+            <div class="search-container">
+                <input type="text" id="searchBar" onkeyup="filterCharacters()" placeholder="Wyszukaj postać...">
+            </div>
+        </div>
         <div id="background-author"></div>
     </div>
 </body>
