@@ -74,7 +74,38 @@ function showOwnedMaterials() {
     content.innerHTML = '<p>Funkcja w budowie...</p>';
 }
 
+const backgrounds = [
+    { file: 'BG_Fontaine.webp', author: 'Party BG_Fontaine_cleaned & upscaled by asddzr' },
+    { file: 'BG_Inazuma.webp', author: 'Party BG_Inazuma_cleaned & upscaled by asddzr' },
+    { file: 'BG_Liyue.webp', author: 'Party BG_Liyue_cleaned & upscaled by asddzr' },
+    { file: 'BG_Mond.webp', author: 'Party BG_Mond_cleaned & upscaled by asddzr' },
+    { file: 'BG_Starry.webp', author: 'Party BG_Starry_cleaned & upscaled by asddzr' },
+    { file: 'BG_Sumeru_Desert.webp', author: 'Party BG_Sumeru (Desert)_cleaned & upscaled by asddzr' },
+    { file: 'BG_Sumeru_Rainforest.webp', author: 'Party BG_Sumeru (Rainforest)_cleaned & upscaled by asddzr' }
+];
+
+const preloadedImages = [];
 let currentBackgroundIndex = 0;
+
+function preloadImages() {
+    return new Promise((resolve, reject) => {
+        let loadedCount = 0;
+        backgrounds.forEach((bg, index) => {
+            const img = new Image();
+            img.src = `assets/backgrounds/${bg.file}`;
+            img.onload = () => {
+                preloadedImages[index] = { img, author: bg.author };
+                loadedCount++;
+                if (loadedCount === backgrounds.length) {
+                    resolve();
+                }
+            };
+            img.onerror = () => {
+                reject(new Error(`Failed to load image: ${bg.file}`));
+            };
+        });
+    });
+}
 
 function rotateBackgrounds() {
     const appElement = document.getElementById('app');
@@ -85,37 +116,27 @@ function rotateBackgrounds() {
         const nextIndex = (currentBackgroundIndex + 1) % preloadedImages.length;
         const nextBg = preloadedImages[nextIndex];
 
-        // Zmiana tła
-        appElement.style.transition = 'none'; // Wyłączenie przejścia
+        appElement.style.transition = 'none';
         appElement.style.backgroundImage = `url(${bg.img.src})`;
         authorElement.textContent = `OG File: ${bg.author}`;
 
-        // Opóźnienie przed ustawieniem nowego tła
         setTimeout(() => {
-            appElement.style.transition = 'background-image 3s ease-in-out'; // Włączenie przejścia
-
+            appElement.style.transition = 'background-image 3s ease-in-out';
             appElement.style.backgroundImage = `url(${nextBg.img.src})`;
             authorElement.textContent = `OG File: ${nextBg.author}`;
 
-            // Przygotowanie do kolejnej zmiany tła
             currentBackgroundIndex = nextIndex;
             setTimeout(updateBackground, 7000); // Zmiana co 10 sekund
         }, 3000); // 3 sekundy na zaciemnienie
     }
 
-    // Wywołanie pierwszej zmiany tła
     updateBackground();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Wait until all images are preloaded
-    const preloadCheckInterval = setInterval(() => {
-        if (preloadedImages.length === backgrounds.length) {
-            clearInterval(preloadCheckInterval);
-            rotateBackgrounds();
-        }
-    }, 100); // Check every 100ms
+    preloadImages().then(() => {
+        rotateBackgrounds();
+    }).catch((error) => {
+        console.error(error);
+    });
 });
-
-
-
