@@ -112,6 +112,8 @@ function rotateBackgrounds() {
     const authorElement = document.getElementById('background-author');
 
     function updateBackground() {
+        if (preloadedImages.length === 0) return;
+
         const bg = preloadedImages[currentBackgroundIndex];
         const nextIndex = (currentBackgroundIndex + 1) % preloadedImages.length;
         const nextBg = preloadedImages[nextIndex];
