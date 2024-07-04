@@ -1,7 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadCharacterIcons();
     rotateBackgrounds();
+    adjustContentHeight();
 });
+
+window.addEventListener('resize', adjustContentHeight);
+
+function adjustContentHeight() {
+    const content = document.getElementById('content');
+    const characterListContainer = document.querySelector('.character-list-container');
+    content.style.height = `${characterListContainer.offsetHeight}px`;
+}
 
 function loadCharacterIcons() {
     fetch('data/character_list.json')
