@@ -22,7 +22,9 @@ h1 {
     /* srebrny gradient */ 
     /* background: linear-gradient(#C0C0C0, #FFFFFF); */
     /* zielony gradient */
-    background: linear-gradient(cyan, yellow);
+    /* background: linear-gradient(cyan, yellow); */
+    /* złoty w srebro gradient */
+    background: linear-gradient(#FFD700, #FFA500, #C0C0C0, #FFFFFF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 2px black;
