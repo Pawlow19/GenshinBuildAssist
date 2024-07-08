@@ -20,7 +20,7 @@ h1 {
     background: linear-gradient(to right, #ffcc00, #ff9900);
     background-clip: text;
     -webkit-background-clip: text;
-    color: transparent;
+    
     text-shadow: 0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000;
     text-align: center;
 }
