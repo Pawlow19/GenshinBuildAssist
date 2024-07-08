@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadCharacterIcons();
-    rotateBackgrounds();
+    preloadImages().then(() => {
+        rotateBackgrounds();
+    }).catch((error) => {
+        console.error(error);
+    });
     adjustContentHeight();
 });
 
@@ -16,15 +20,16 @@ function loadCharacterIcons() {
     fetch('data/character_list.json')
         .then(response => response.json())
         .then(data => {
-            const content = document.getElementById('content');
-            content.innerHTML = '';
+            const characterListContainer = document.querySelector('.character-list-container');
+            characterListContainer.innerHTML = '';
             Object.keys(data.characters).forEach(character => {
                 const div = document.createElement('div');
                 div.classList.add('character-icon');
                 div.dataset.name = character.toLowerCase();
                 div.innerHTML = `<a href="character_details.html?name=${character}"><img src="assets/characters/icon/${character}_Icon.webp" alt="${character}"><br>${character}</a>`;
-                content.appendChild(div);
+                characterListContainer.appendChild(div);
             });
+            adjustContentHeight(); // Adjust content height after loading characters
         })
         .catch(error => console.error('Error loading character icons:', error));
 }
@@ -41,6 +46,7 @@ function filterCharacters() {
             icon.style.display = 'none';
         }
     });
+    adjustContentHeight(); // Adjust content height after filtering
 }
 
 function showCharacterList() {
@@ -51,7 +57,8 @@ function showCharacterList() {
 function showOwnedCharacters() {
     document.getElementById('searchBar').style.display = 'block';
     const content = document.getElementById('content');
-    content.innerHTML = '';
+    const characterListContainer = document.querySelector('.character-list-container');
+    characterListContainer.innerHTML = '';
 
     Object.keys(localStorage).forEach(key => {
         if (key.startsWith('character_')) {
@@ -60,27 +67,30 @@ function showOwnedCharacters() {
             div.classList.add('character-icon');
             div.dataset.name = character.toLowerCase();
             div.innerHTML = `<a href="character_details.html?name=${character}"><img src="assets/characters/icon/${character}_Icon.webp" alt="${character}"><br>${character}</a>`;
-            content.appendChild(div);
+            characterListContainer.appendChild(div);
         }
     });
 
-    if (!content.hasChildNodes()) {
-        content.innerHTML = '<p>Brak posiadanych postaci.</p>';
+    if (!characterListContainer.hasChildNodes()) {
+        characterListContainer.innerHTML = '<p>Brak posiadanych postaci.</p>';
     }
+    adjustContentHeight(); // Adjust content height after loading owned characters
 }
 
 function showMaterialList() {
-    // Placeholder for material list functionality
     document.getElementById('searchBar').style.display = 'none';
     const content = document.getElementById('content');
-    content.innerHTML = '<p>Funkcja w budowie...</p>';
+    const characterListContainer = document.querySelector('.character-list-container');
+    characterListContainer.innerHTML = '<p>Funkcja w budowie...</p>';
+    adjustContentHeight(); // Adjust content height after showing material list
 }
 
 function showOwnedMaterials() {
-    // Placeholder for owned materials functionality
     document.getElementById('searchBar').style.display = 'none';
     const content = document.getElementById('content');
-    content.innerHTML = '<p>Funkcja w budowie...</p>';
+    const characterListContainer = document.querySelector('.character-list-container');
+    characterListContainer.innerHTML = '<p>Funkcja w budowie...</p>';
+    adjustContentHeight(); // Adjust content height after showing owned materials
 }
 
 const backgrounds = [
@@ -143,11 +153,3 @@ function rotateBackgrounds() {
 
     updateBackground();
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    preloadImages().then(() => {
-        rotateBackgrounds();
-    }).catch((error) => {
-        console.error(error);
-    });
-});

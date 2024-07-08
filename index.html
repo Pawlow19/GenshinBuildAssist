@@ -6,7 +6,7 @@
     <title>Genshin Impact Materials Calculator</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/character_details_style.css">
-    <script src="scripts/index.js" defer></script> <!-- Rotacja obrazów -->
+    <script src="scripts/index.js" defer></script>
 </head>
 <body>
     <div id="app">
@@ -17,13 +17,12 @@
             <button onclick="showMaterialList()">Lista Materiałów</button>
             <button onclick="showOwnedMaterials()">Posiadane Materiały</button>
         </nav>
-        <!-- <div class="search-container">
-            <input type="text" id="searchBar" onkeyup="filterCharacters()" placeholder="Wyszukaj postać...">
+        <div id="search-container">
+            <input type="text" id="searchBar" onkeyup="filterCharacters()" placeholder="Szukaj postaci...">
         </div>
-        <div id="content"></div> -->
         <div id="content">
-            <input type="text" id="searchBar" placeholder="Szukaj postaci...">
             <div class="character-list-container">
+                <!-- Dynamicznie generowana lista postaci -->
             </div>
         </div>
         <div id="background-author"></div>
