@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genshin Impact Materials Calculator</title>
+    <title>Genshin Impact Build Assistant</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/character_details_style.css">
     <script src="scripts/index.js" defer></script>
@@ -12,10 +12,22 @@
     <div id="app">
         <h1>Genshin Impact Build Assistant</h1>
         <nav>
-            <button onclick="showCharacterList()">Lista Postaci</button>
-            <button onclick="showOwnedCharacters()">Posiadane Postacie</button>
-            <button onclick="showMaterialList()">Lista Materiałów</button>
-            <button onclick="showOwnedMaterials()">Posiadane Materiały</button>
+            <button onclick="showCharacterList()" class="nav-button">
+                <img src="assets/icons/Icon_Friends.webp" alt="Lista Postaci">
+                <span>Lista Postaci</span>
+            </button>
+            <button onclick="showOwnedCharacters()" class="nav-button">
+                <img src="assets/icons/Icon_Character_Archive.webp" alt="Posiadane Postacie">
+                <span>Posiadane Postacie</span>
+            </button>
+            <button onclick="showMaterialList()" class="nav-button">
+                <img src="assets/icons/Icon_Adventurer_Handbook.webp" alt="Lista Materiałów">
+                <span>Lista Materiałów</span>
+            </button>
+            <button onclick="showOwnedMaterials()" class="nav-button">
+                <img src="assets/icons/Icon_Inventory.webp" alt="Posiadane Materiały">
+                <span>Posiadane Materiały</span>
+            </button>
         </nav>
         <div id="search-container">
             <input type="text" id="searchBar" onkeyup="filterCharacters()" placeholder="Szukaj postaci...">

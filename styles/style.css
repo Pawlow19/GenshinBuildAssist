@@ -47,20 +47,48 @@ nav {
     margin-top: 20px;
 }
 
-.character-icon {
-    display: inline-block;
-    margin: 10px;
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-.character-icon img {
-    width: 128px;
-    height: 128px;
+.nav-button {
+    display: block;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Impact', sans-serif;
+    font-size: 1em;
+    background: linear-gradient(to right, #FFD700, #FFA500); /* Złoty gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
+    margin: 0 10px;
+    border: none;
+    background: none;
     cursor: pointer;
+}
+
+.nav-button img {
+    display: block;
+    margin: 0 auto;
+    width: 72px;
+    height: 72px;
 }
 
 #search-container {
     text-align: center;
     margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: calc(100% - 40px);
+    max-width: 600px;
+    margin: 20px auto;
 }
 
 #searchBar {
