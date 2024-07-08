@@ -50,12 +50,12 @@ function filterCharacters() {
 }
 
 function showCharacterList() {
-    document.getElementById('searchBar').style.display = 'block';
+    // document.getElementById('searchBar').style.display = 'block';
     loadCharacterIcons();
 }
 
 function showOwnedCharacters() {
-    document.getElementById('searchBar').style.display = 'block';
+    // document.getElementById('searchBar').style.display = 'block';
     const content = document.getElementById('content');
     const characterListContainer = document.querySelector('.character-list-container');
     characterListContainer.innerHTML = '';
@@ -78,7 +78,7 @@ function showOwnedCharacters() {
 }
 
 function showMaterialList() {
-    document.getElementById('searchBar').style.display = 'none';
+    // document.getElementById('searchBar').style.display = 'none';
     const content = document.getElementById('content');
     const characterListContainer = document.querySelector('.character-list-container');
     characterListContainer.innerHTML = '<p>Funkcja w budowie...</p>';
@@ -86,7 +86,7 @@ function showMaterialList() {
 }
 
 function showOwnedMaterials() {
-    document.getElementById('searchBar').style.display = 'none';
+    // document.getElementById('searchBar').style.display = 'none';
     const content = document.getElementById('content');
     const characterListContainer = document.querySelector('.character-list-container');
     characterListContainer.innerHTML = '<p>Funkcja w budowie...</p>';
