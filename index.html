@@ -11,37 +11,39 @@
 <body>
     <div id="app">
         <h1>Genshin Impact Build Assistant</h1>
-        <nav>
-            <ul class="nav-buttons">
-                <li>
-                    <button onclick="showCharacterList()" class="nav-button">
-                        <img src="assets/icons/Icon_Friends.webp" alt="Lista Postaci">
-                        <span>Lista Postaci</span>
-                    </button>
-                </li>
-                <li>
-                    <button onclick="showOwnedCharacters()" class="nav-button">
-                        <img src="assets/icons/Icon_Character_Archive.webp" alt="Posiadane Postacie">
-                        <span>Posiadane Postacie</span>
-                    </button>
-                </li>
-                <li>
-                    <button onclick="showMaterialList()" class="nav-button">
-                        <img src="assets/icons/Icon_Adventurer_Handbook.webp" alt="Lista Materiałów">
-                        <span>Lista Materiałów</span>
-                    </button>
-                </li>
-                <li>
-                    <button onclick="showOwnedMaterials()" class="nav-button">
-                        <img src="assets/icons/Icon_Inventory.webp" alt="Posiadane Materiały">
-                        <span>Posiadane Materiały</span>
-                    </button>
-                </li>
-            </ul>
+        <div id="nav-container">
+            <nav>
+                <ul class="nav-buttons">
+                    <li>
+                        <button onclick="showCharacterList()" class="nav-button">
+                            <img src="assets/icons/Icon_Friends.webp" alt="Lista Postaci">
+                            <span>Lista Postaci</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="showOwnedCharacters()" class="nav-button">
+                            <img src="assets/icons/Icon_Character_Archive.webp" alt="Posiadane Postacie">
+                            <span>Posiadane Postacie</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="showMaterialList()" class="nav-button">
+                            <img src="assets/icons/Icon_Adventurer_Handbook.webp" alt="Lista Materiałów">
+                            <span>Lista Materiałów</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="showOwnedMaterials()" class="nav-button">
+                            <img src="assets/icons/Icon_Inventory.webp" alt="Posiadane Materiały">
+                            <span>Posiadane Materiały</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
             <div id="search-container">
                 <input type="text" id="searchBar" onkeyup="filterCharacters()" placeholder="Szukaj postaci...">
             </div>
-        </nav>
+        </div>
         <div id="content">
             <div class="character-list-container">
                 <!-- Dynamicznie generowana lista postaci -->
