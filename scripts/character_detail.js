@@ -22,12 +22,36 @@ function loadCharacterDetail(character) {
                 document.getElementById('edit-normal-attack-name').textContent = `Normal Attack: ${characterData["Normal Attack"]}`;
                 document.getElementById('edit-elemental-skill-name').textContent = `Elemental Skill: ${characterData["Elemental Skill"]}`;
                 document.getElementById('edit-elemental-burst-name').textContent = `Elemental Burst: ${characterData["Elemental Burst"]}`;
+                
+                // Ustawienie tła na podstawie elementu
+                setCharacterBackground(characterData);
+
                 loadCharacterFromLocalStorage(character);
             } else {
                 alert('Character data not found.');
             }
         })
         .catch(error => console.error('Error loading character data:', error));
+}
+
+function setCharacterBackground(character) {
+    const element = character.element.toLowerCase();
+    const backgroundMap = {
+        "anemo": { file: "ANEMO BG Blank.webp", author: "ANEMO BG Blank by Kaerralind" },
+        "cryo": { file: "CRYO BG Blank.webp", author: "CRYO BG Blank by Kaerralind" },
+        "dendro": { file: "DENDRO BG Blank.webp", author: "DENDRO BG Blank by Kaerralind" },
+        "electro": { file: "ELECTRO BG Blank.webp", author: "ELECTRO BG Blank by Kaerralind" },
+        "geo": { file: "GEO BG Blank.webp", author: "GEO BG Blank by Kaerralind" },
+        "hydro": { file: "HYDRO BG Blank.webp", author: "HYDRO BG Blank by Kaerralind" },
+        "pyro": { file: "PYRO BG Blank.webp", author: "PYRO BG Blank by Kaerralind" },
+        "unaligned": { file: "UNALIGNED BG Blank.webp", author: "UNALIGNED BG Blank by Kaerralind" }
+    };
+
+    const backgroundData = backgroundMap[element] || backgroundMap["unaligned"];
+    document.body.style.backgroundImage = `url('backgrounds/${backgroundData.file}')`;
+
+    const backgroundAuthor = document.getElementById("background-author");
+    backgroundAuthor.innerText = backgroundData.author;
 }
 
 function loadCharacterFromLocalStorage(character) {
