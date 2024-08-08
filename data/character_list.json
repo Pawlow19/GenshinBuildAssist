@@ -1,6 +1,7 @@
 {
     "characters": {
         "Amber": {
+            "title": "Gliding Champion",
             "element": "Pyro",
             "weapon": "Bow",
             "nationality": "Mondstadt",
@@ -10,6 +11,7 @@
             "Elemental Burst": "Fiery Rain"
         },
         "Barbara": {
+            "title": "Shining Idol",
             "element": "Hydro",
             "weapon": "Catalyst",
             "nationality": "Mondstadt",
@@ -19,6 +21,7 @@
             "Elemental Burst": "Shining Miracle♪"
         },
         "Collei": {
+            "title": "Sprout of Rebirth",
             "element": "Dendro",
             "weapon": "Bow",
             "nationality": "Sumeru",
@@ -28,6 +31,7 @@
             "Elemental Burst": "Trump-Card Kitty"
         },
         "Furina": {
+            "title": "Endless Solo of Solitude",
             "element": "Hydro",
             "weapon": "Sword",
             "nationality": "Fontaine",
@@ -37,6 +41,7 @@
             "Elemental Burst": "Rite of the Eternal Flow"
         },
         "Ganyu": {
+            "title": "Plenilune Gaze",
             "element": "Cryo",
             "weapon": "Bow",
             "nationality": "Liyue",
@@ -46,6 +51,7 @@
             "Elemental Burst": "Celestial Shower"
         },
         "Gorou": {
+            "title": "Canine Warrior",
             "element": "Geo",
             "weapon": "Bow",
             "nationality": "Inazuma",
@@ -55,6 +61,7 @@
             "Elemental Burst": "Juuga: Forward Unto Victory"
         },
         "Kaeya": {
+            "title": "Frostwind Swordsman",
             "element": "Cryo",
             "weapon": "Sword",
             "nationality": "Mondstadt",
@@ -64,6 +71,7 @@
             "Elemental Burst": "Glacial Waltz"
         },
         "Kirara": {
+            "title": "Cat Upon the Eaves",
             "element": "Dendro",
             "weapon": "Sword",
             "nationality": "Inazuma",
@@ -73,6 +81,7 @@
             "Elemental Burst": "Secret Art: Surprise Dispatch"
         },
         "Lisa": {
+            "title": "Witch of Purple Rose",
             "element": "Electro",
             "weapon": "Catalyst",
             "nationality": "Mondstadt",
@@ -82,6 +91,7 @@
             "Elemental Burst": "Lightning Rose"
         },
         "Lynette": {
+            "title": "Elegance in the Shadows",
             "element": "Anemo",
             "weapon": "Sword",
             "nationality": "Fontaine",
@@ -91,6 +101,7 @@
             "Elemental Burst": "Magic Trick: Astonishing Shift"
         },
         "Navia": {
+            "title": "Helm of the Radiant Rose",
             "element": "Geo",
             "weapon": "Claymore",
             "nationality": "Fontaine",
@@ -100,6 +111,7 @@
             "Elemental Burst": "Dawning Glow"
         },
         "Xiangling": {
+            "title": "Exquisite Delicacy",
             "element": "Pyro",
             "weapon": "Polearm",
             "nationality": "Liyue",
