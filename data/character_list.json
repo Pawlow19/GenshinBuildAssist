@@ -1,22 +1,112 @@
 {
     "characters": {
         "Amber": {
+            "element": "Pyro",
+            "weapon": "Bow",
+            "nationality": "Mondstadt",
             "image": "Character_Amber_Full_Wish.webp",
             "Normal Attack": "Sharpshooter",
             "Elemental Skill": "Explosive Puppet",
             "Elemental Burst": "Fiery Rain"
         },
+        "Barbara": {
+            "element": "Hydro",
+            "weapon": "Catalyst",
+            "nationality": "Mondstadt",
+            "image": "Character_Lisa_Full_Wish.webp",
+            "Normal Attack": "Whisper of Water",	
+            "Elemental Skill": "Let the Show Begin♪",
+            "Elemental Burst": "Shining Miracle♪"
+        },
+        "Collei": {
+            "element": "Dendro",
+            "weapon": "Bow",
+            "nationality": "Sumeru",
+            "image": "Character_Collei_Full_Wish.webp",
+            "Normal Attack": "Supplicant's Bowmanship",	
+            "Elemental Skill": "Floral Brush",
+            "Elemental Burst": "Trump-Card Kitty"
+        },
+        "Furina": {
+            "element": "Hydro",
+            "weapon": "Sword",
+            "nationality": "Fontaine",
+            "image": "Character_Furina_Full_Wish.webp",
+            "Normal Attack": "Normal Attack",	
+            "Elemental Skill": "Judgment of the Raging Court",
+            "Elemental Burst": "Rite of the Eternal Flow"
+        },
         "Ganyu": {
+            "element": "Cryo",
+            "weapon": "Bow",
+            "nationality": "Liyue",
             "image": "Character_Ganyu_Full_Wish.webp",
             "Normal Attack": "Liutian Archery",	
             "Elemental Skill": "Trail of the Qilin",
             "Elemental Burst": "Celestial Shower"
         },
+        "Gorou": {
+            "element": "Geo",
+            "weapon": "Bow",
+            "nationality": "Inazuma",
+            "image": "Character_Gorou_Full_Wish.webp",
+            "Normal Attack": "Ripping Fang Fletching",	
+            "Elemental Skill": "Inuzaka All-Round Defense",
+            "Elemental Burst": "Juuga: Forward Unto Victory"
+        },
+        "Kaeya": {
+            "element": "Cryo",
+            "weapon": "Sword",
+            "nationality": "Mondstadt",
+            "image": "Character_Kaeya_Full_Wish.webp",
+            "Normal Attack": "Ceremonial Bladework",	
+            "Elemental Skill": "Frostgnaw",
+            "Elemental Burst": "Glacial Waltz"
+        },
+        "Kirara": {
+            "element": "Dendro",
+            "weapon": "Sword",
+            "nationality": "Inazuma",
+            "image": "Character_Kirara_Full_Wish.webp",
+            "Normal Attack": "Boxcutter",	
+            "Elemental Skill": "Meow-teor Kick",
+            "Elemental Burst": "Secret Art: Surprise Dispatch"
+        },
         "Lisa": {
+            "element": "Electro",
+            "weapon": "Catalyst",
+            "nationality": "Mondstadt",
             "image": "Character_Lisa_Full_Wish.webp",
             "Normal Attack": "Lightning Touch",	
             "Elemental Skill": "Violet Arc",
             "Elemental Burst": "Lightning Rose"
+        },
+        "Lynette": {
+            "element": "Anemo",
+            "weapon": "Sword",
+            "nationality": "Fontaine",
+            "image": "Character_Lynette_Full_Wish.webp",
+            "Normal Attack": "Rapid Ritesword",	
+            "Elemental Skill": "Enigmatic Feint",
+            "Elemental Burst": "Magic Trick: Astonishing Shift"
+        },
+        "Navia": {
+            "element": "Geo",
+            "weapon": "Claymore",
+            "nationality": "Fontaine",
+            "image": "Character_Navia_Full_Wish.webp",
+            "Normal Attack": "Blazing Ark",	
+            "Elemental Skill": "Charmed Seas, Sundering Tide",
+            "Elemental Burst": "Dawning Glow"
+        },
+        "Xiangling": {
+            "element": "Pyro",
+            "weapon": "Polearm",
+            "nationality": "Liyue",
+            "image": "Character_Xiangling_Full_Wish.webp",
+            "Normal Attack": "Dough-Fu",	
+            "Elemental Skill": "Guoba Attack",
+            "Elemental Burst": "Pyronado"
         }
     }
 }
