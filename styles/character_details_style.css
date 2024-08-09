@@ -1,5 +1,5 @@
 body {
-    background-image: url('assets/backgrounds/UNALIGNED BG Blank.webp');
+    background-image: url('../assets/backgrounds/UNALIGNED BG Blank.webp');
     background-size: cover; /* Rozciąga obraz tła, aby pokrył cały ekran */
     background-position: center; /* Wyrównanie obrazu w centrum */
     margin: 0; /* Usuń domyślne marginesy */
