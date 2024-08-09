@@ -48,7 +48,7 @@ function setCharacterBackground(character) {
     };
 
     const backgroundData = backgroundMap[element] || backgroundMap["unaligned"];
-    document.body.style.backgroundImage = `url('backgrounds/${backgroundData.file}')`;
+    document.body.style.backgroundImage = `url('assets/backgrounds/${backgroundData.file}')`;
 
     const backgroundAuthor = document.getElementById("background-author");
     backgroundAuthor.innerText = backgroundData.author;
