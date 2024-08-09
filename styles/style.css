@@ -120,9 +120,9 @@ nav {
     background-color: white;
 }
 
-#content {
+/* #content {
     margin-top: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Półprzezroczyste tło */
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     width: 100%;
     max-width: 800px;
@@ -131,7 +131,21 @@ nav {
     margin: 0 auto;
     position: relative;
     z-index: 1;
+} */
+
+#content {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Półprzezroczyste tło */
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 800px; /* Ustalamy maksymalną wysokość */
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    overflow-y: auto; /* Umożliwia przewijanie w pionie */
 }
+
 
 .character-icon {
     display: inline-block;
@@ -156,8 +170,8 @@ nav {
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 20px;
-    max-height: 80vh; /* Maksymalna wysokość kontenera, aby umożliwić scrollowanie */
-    overflow-y: auto; /* Umożliwia scrollowanie w pionie, jeśli zawartość przekroczy wysokość */
+    max-height: 80vh; /* Ustawia maksymalną wysokość kontenera, aby umożliwić scrollowanie */
+    overflow-y: auto; /* Umożliwia przewijanie w pionie */
     padding: 20px; /* Opcjonalne padding dla estetyki */
 }
 
