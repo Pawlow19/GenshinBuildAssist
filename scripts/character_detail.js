@@ -51,7 +51,7 @@ function setCharacterBackground(character) {
     document.body.style.backgroundImage = `url('assets/backgrounds/${backgroundData.file}')`;
 
     const backgroundAuthor = document.getElementById("background-author");
-    backgroundAuthor.innerText = backgroundData.author;
+    backgroundAuthor.innerText = `OG File: ${backgroundData.author}`;
 }
 
 function loadCharacterFromLocalStorage(character) {
