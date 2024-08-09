@@ -144,11 +144,21 @@ nav {
     cursor: pointer;
 }
 
+/* .character-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+} */
+
 .character-list-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 20px;
+    max-height: 80vh; /* Maksymalna wysokość kontenera, aby umożliwić scrollowanie */
+    overflow-y: auto; /* Umożliwia scrollowanie w pionie, jeśli zawartość przekroczy wysokość */
+    padding: 20px; /* Opcjonalne padding dla estetyki */
 }
 
 .character-list-item {
