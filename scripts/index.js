@@ -5,15 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }).catch((error) => {
         console.error(error);
     });
-    adjustContentHeight();
 });
 
 window.addEventListener('resize', adjustContentHeight);
 
 function adjustContentHeight() {
+    // Usuwamy ustawianie wysokości kontenera, aby umożliwić scrollowanie wewnętrzne
     const content = document.getElementById('content');
     const characterListContainer = document.querySelector('.character-list-container');
-    content.style.height = `${characterListContainer.offsetHeight}px`;
+    content.style.height = ''; // Usuwamy wysokość
 }
 
 function loadCharacterIcons() {
@@ -29,7 +29,7 @@ function loadCharacterIcons() {
                 div.innerHTML = `<a href="character_details.html?name=${character}"><img src="assets/characters/icon/${character}_Icon.webp" alt="${character}"><br>${character}</a>`;
                 characterListContainer.appendChild(div);
             });
-            adjustContentHeight(); // Adjust content height after loading characters
+            // Nie wywołujemy adjustContentHeight() tutaj, aby kontener miał swoje własne przewijanie
         })
         .catch(error => console.error('Error loading character icons:', error));
 }
@@ -46,7 +46,7 @@ function filterCharacters() {
             icon.style.display = 'none';
         }
     });
-    adjustContentHeight(); // Adjust content height after filtering
+    // Nie wywołujemy adjustContentHeight() tutaj
 }
 
 function showCharacterList() {
