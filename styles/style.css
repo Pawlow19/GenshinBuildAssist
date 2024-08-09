@@ -186,7 +186,7 @@ nav {
     position: fixed; /* Umożliwia stałe umiejscowienie w oknie przeglądarki */
     bottom: 10px;    /* Odstęp od dolnej krawędzi */
     right: 10px;     /* Odstęp od prawej krawędzi */
-    background-color: rgba(0, 0, 0, 0.7); /* Ciemne, przezroczyste tło dla lepszej czytelności */
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;    /* Kolor tekstu */
     padding: 5px;    /* Wewnętrzne odstępy */
     border-radius: 5px; /* Zaokrąglone rogi */
