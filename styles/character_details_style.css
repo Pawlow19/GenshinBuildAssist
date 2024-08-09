@@ -1,16 +1,19 @@
 body {
-    background-image: url('assets/backgrounds/BG_Character_Details.webp');
-    background-size: cover;
-    background-position: center;
+    background-image: url('assets/backgrounds/UNALIGNED BG Blank.webp');
+    background-size: cover; /* Rozciąga obraz tła, aby pokrył cały ekran */
+    background-position: center; /* Wyrównanie obrazu w centrum */
+    margin: 0; /* Usuń domyślne marginesy */
+    padding: 0; /* Usuń domyślne odstępy */
 }
 
 .character-detail {
     display: flex;
     align-items: flex-start;
     gap: 20px;
+    padding: 20px; /* Dodaje odstępy wewnętrzne */
 }
 
 .character-image img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; /* Obrazek nie wychodzi poza kontener */
+    height: auto;    /* Zachowuje proporcje obrazka */
 }
